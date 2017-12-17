@@ -30,6 +30,7 @@ public class DataFilterAspect {
     @Autowired
     private SysDeptService sysDeptService;
 
+    //匹配持有指定注解的方法
     @Pointcut("@annotation(io.renren.common.annotation.DataFilter)")
     public void dataFilterCut() {
 

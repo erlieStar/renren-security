@@ -20,6 +20,8 @@ import java.util.Set;
 public class ValidatorUtils {
     private static Validator validator;
 
+
+    //静态代码块只执行一次，执行顺序，优先级从高到低，静态代码块>mian方法>构造代码块>构造方法
     static {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
