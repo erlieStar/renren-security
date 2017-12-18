@@ -41,7 +41,8 @@ public class SysLogController {
 		Query query = new Query(params);
 		List<SysLogEntity> sysLogList = sysLogService.queryList(query);
 		int total = sysLogService.queryTotal(query);
-		
+
+		//将显示所需的各种数据封装到PageUtils这个对象中
 		PageUtils pageUtil = new PageUtils(sysLogList, total, query.getLimit(), query.getPage());
 		
 		return R.ok().put("page", pageUtil);

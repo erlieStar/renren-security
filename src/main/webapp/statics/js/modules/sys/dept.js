@@ -1,12 +1,17 @@
 var setting = {
     data: {
         simpleData: {
+            //使用简单数据模式
             enable: true,
+            //本节点的唯一标识
             idKey: "deptId",
+            //父节点的唯一标识
             pIdKey: "parentId",
+            //修正父节点的值
             rootPId: -1
         },
         key: {
+            //点到链接
             url:"nourl"
         }
     }
@@ -78,6 +83,7 @@ var vm = new Vue({
                 });
             });
         },
+        //选择部门后点击确定
         saveOrUpdate: function (event) {
             var url = vm.dept.deptId == null ? "sys/dept/save" : "sys/dept/update";
             $.ajax({
@@ -96,6 +102,7 @@ var vm = new Vue({
                 }
             });
         },
+        //选择上级部门
         deptTree: function(){
             layer.open({
                 type: 1,
@@ -117,6 +124,7 @@ var vm = new Vue({
                 }
             });
         },
+        //重新加载表格
         reload: function () {
             vm.showList = true;
             Dept.table.refresh();

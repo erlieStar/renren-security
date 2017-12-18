@@ -62,11 +62,13 @@ public class SysDeptController extends AbstractController {
 
 	/**
 	 * 上级部门Id(管理员则为0)
+	 * 显示首页
 	 */
 	@RequestMapping("/info")
 	@RequiresPermissions("sys:dept:list")
 	public R info(){
 		long deptId = 0;
+		//不是超级管理员
 		if(getUserId() != Constant.SUPER_ADMIN){
 			SysDeptEntity dept = sysDeptService.queryObject(getDeptId());
 			deptId = dept.getParentId();

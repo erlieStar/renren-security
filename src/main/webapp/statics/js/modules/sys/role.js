@@ -100,6 +100,7 @@ var vm = new Vue({
             roleName: null
         },
         showList: true,
+        //tab页面是修改还是删除
         title:null,
         role:{
             deptId:null,
@@ -107,6 +108,7 @@ var vm = new Vue({
         }
     },
     methods: {
+        //点击查询按钮，重新绘制表格
         query: function () {
             vm.reload();
         },
@@ -121,6 +123,7 @@ var vm = new Vue({
             vm.getDataTree();
         },
         update: function () {
+            //获取选中的记录
             var roleId = getSelectedRow();
             if(roleId == null){
                 return ;
@@ -212,6 +215,7 @@ var vm = new Vue({
                 }
             });
         },
+        //获取功能权限
         getMenuTree: function(roleId) {
             //加载菜单树
             $.get(baseURL + "sys/menu/list", function(r){
@@ -224,6 +228,7 @@ var vm = new Vue({
                 }
             });
         },
+        //获取数据权限
         getDataTree: function(roleId) {
             //加载菜单树
             $.get(baseURL + "sys/dept/list", function(r){
@@ -232,6 +237,7 @@ var vm = new Vue({
                 data_ztree.expandAll(true);
             });
         },
+        //选择所属部门
         getDept: function(){
             //加载部门树
             $.get(baseURL + "sys/dept/list", function(r){
