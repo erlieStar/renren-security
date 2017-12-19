@@ -7,6 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ *
+ * 将查询封装成对象
  * 查询参数
  *
  * @author chenshun

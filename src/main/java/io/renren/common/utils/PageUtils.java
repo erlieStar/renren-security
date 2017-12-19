@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * 分页工具类
+ * 将显示页面所需的各种数据封装到PageUtils中
  * 
  * @author chenshun
  * @email sunlightcs@gmail.com

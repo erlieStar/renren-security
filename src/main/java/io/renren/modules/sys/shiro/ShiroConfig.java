@@ -25,6 +25,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
+    //安全管理器使用用于web环境的DefaultWebSecurityManager
     @Bean("sessionManager")
     public SessionManager sessionManager(RedisShiroSessionDAO redisShiroSessionDAO,
                                          @Value("${renren.redis.open}") boolean redisOpen,
@@ -42,6 +43,7 @@ public class ShiroConfig {
         return sessionManager;
     }
 
+    //配置安全管理器
     @Bean("securityManager")
     public SecurityManager securityManager(UserRealm userRealm, SessionManager sessionManager) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
@@ -52,6 +54,7 @@ public class ShiroConfig {
     }
 
 
+    //定义启用Web的SecurityManager和将从web.xml引用的“shiroFilter”bean
     @Bean("shiroFilter")
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
@@ -72,11 +75,16 @@ public class ShiroConfig {
         return shiroFilter;
     }
 
+    //shiro生命周期处理器
     @Bean("lifecycleBeanPostProcessor")
     public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
 
+    //这个配置和下面的配置的作用
+    //在独立应用程序和Web应用程序中，您可能需要使用Shiro的Annotations进行安全检查
+    // 例如，@RequiresRoles，@RequiresPermissions等
+    // 这需要Shiro的Spring AOP集成来扫描相应的注释类并根据需要执行安全逻辑。
     @Bean
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
         DefaultAdvisorAutoProxyCreator proxyCreator = new DefaultAdvisorAutoProxyCreator();

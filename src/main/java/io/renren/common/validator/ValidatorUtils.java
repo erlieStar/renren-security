@@ -32,11 +32,17 @@ public class ValidatorUtils {
      * @param groups        待校验的组
      * @throws RRException  校验不通过，则报RRException异常
      */
+
+    //Class<?>...应该是一个Object类型的数组
     public static void validateEntity(Object object, Class<?>... groups)
             throws RRException {
+
+        //第一个参数时要校验的对象，第二个参数时校验的规则，返回违反的约束或者为空
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(object, groups);
         if (!constraintViolations.isEmpty()) {
+            //遍历违反的约束
         	ConstraintViolation<Object> constraint = (ConstraintViolation<Object>)constraintViolations.iterator().next();
+        	//返回错误信息
             throw new RRException(constraint.getMessage());
         }
     }

@@ -33,6 +33,7 @@ var vm = new Vue({
         getDept: function(){
             //加载部门树
             $.get(baseURL + "sys/dept/select", function(r){
+                //把显示部门树的控件显示在id为deptTree的地方
                 ztree = $.fn.zTree.init($("#deptTree"), setting, r.deptList);
                 var node = ztree.getNodeByParam("deptId", vm.dept.parentId);
                 ztree.selectNode(node);

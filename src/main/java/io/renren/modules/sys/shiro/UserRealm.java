@@ -29,6 +29,7 @@ import org.springframework.stereotype.Component;
  * 
  * @author chenshun
  * @email sunlightcs@gmail.com
+ * @description 定义连接后端的安全数据源
  * @date 2016年11月10日 上午11:55:49
  */
 @Component

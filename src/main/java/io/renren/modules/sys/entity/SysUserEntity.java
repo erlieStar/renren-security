@@ -28,6 +28,11 @@ public class SysUserEntity implements Serializable {
 
 	/**
 	 * 用户名
+	 * 使用gruops 属性来实现区别不同的校验需求
+	 * 如果Student bean想要用于两个不同的请求中，每个请求有不同的校验需求，
+	 * 例如一个请求只需要校验name字段,一个请求需要校验name和age两个字段，那该怎么做呢？
+	 * @RequestMapping(value="testStudent1")
+	 *	public void testStudent1(@Validated(NAME.class) Student student)
 	 */
 	@NotBlank(message="用户名不能为空", groups = {AddGroup.class, UpdateGroup.class})
 	private String username;
