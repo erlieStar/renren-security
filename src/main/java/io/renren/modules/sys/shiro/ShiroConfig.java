@@ -33,7 +33,9 @@ public class ShiroConfig {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         //设置session过期时间为1小时(单位：毫秒)，默认为30分钟
         sessionManager.setGlobalSessionTimeout(60 * 60 * 1000);
+        //定期检测会话过期时间
         sessionManager.setSessionValidationSchedulerEnabled(true);
+        //
         sessionManager.setSessionIdUrlRewritingEnabled(false);
 
         //如果开启redis缓存且renren.shiro.redis=true，则shiro session存到redis里

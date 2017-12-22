@@ -41,6 +41,7 @@ public class UserRealm extends AuthorizingRealm {
     
     /**
      * 授权(验证权限时调用)
+	 * 获取授权信息
      */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {

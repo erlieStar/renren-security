@@ -21,6 +21,8 @@ public class ShiroUtils {
 	public final static int hashIterations = 16;
 
 	public static String sha256(String password, String salt) {
+		//官方api地址 http://shiro.apache.org/static/1.3.2/apidocs/
+		//算法名称，数据，盐，迭代次数
 		return new SimpleHash(hashAlgorithmName, password, salt, hashIterations).toString();
 	}
 
