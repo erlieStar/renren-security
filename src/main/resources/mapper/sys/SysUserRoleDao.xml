@@ -11,7 +11,8 @@
 			</if>
 		</where>
 	</select>
- 
+
+	<!--引用map中的roleIdList的值和userId的值-->
 	<insert id="save">
 		insert into sys_user_role
 		(
@@ -19,7 +20,7 @@
 			`role_id`
 		)
 		values
-		<foreach collection="roleIdList" item="item" index="index" separator="," >
+		<foreach collection="roleIdList" index="index" item="item" separator="," >
 		(
 			#{userId}, 
 			#{item}

@@ -22,6 +22,11 @@ public class SysMenuServiceImpl implements SysMenuService {
 	@Autowired
 	private SysUserService sysUserService;
 	
+	/**
+	 * @Author : lilimin
+	 * @Description : 查询父菜单
+	 * @Date : Created in 18:45 2017/12/26
+	 */
 	@Override
 	public List<SysMenuEntity> queryListParentId(Long parentId, List<Long> menuIdList) {
 		List<SysMenuEntity> menuList = queryListParentId(parentId);
@@ -48,6 +53,11 @@ public class SysMenuServiceImpl implements SysMenuService {
 		return sysMenuDao.queryNotButtonList();
 	}
 
+	/**
+	 * @Author : lilimin
+	 * @Description : 获取用户的菜单列表
+	 * @Date : Created in 18:34 2017/12/26
+	 */
 	@Override
 	public List<SysMenuEntity> getUserMenuList(Long userId) {
 		//系统管理员，拥有最高权限
@@ -55,7 +65,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 			return getAllMenuList(null);
 		}
 		
-		//用户菜单列表
+		//用户菜单Id
 		List<Long> menuIdList = sysUserService.queryAllMenuId(userId);
 		return getAllMenuList(menuIdList);
 	}

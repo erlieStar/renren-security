@@ -1,3 +1,4 @@
+// 这个是ztree的设置
 var setting = {
     data: {
         simpleData: {

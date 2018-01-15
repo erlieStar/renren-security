@@ -38,6 +38,11 @@ public class SysUserServiceImpl implements SysUserService {
 		return sysUserDao.queryAllPerms(userId);
 	}
 
+	/**
+	 * @Author : lilimin
+	 * @Description : 查询用户的所有菜单Id
+	 * @Date : Created in 18:35 2017/12/26
+	 */
 	@Override
 	public List<Long> queryAllMenuId(Long userId) {
 		return sysUserDao.queryAllMenuId(userId);
